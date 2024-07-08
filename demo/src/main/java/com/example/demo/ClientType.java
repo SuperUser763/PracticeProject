@@ -13,6 +13,10 @@ public class ClientType {
     @Column(nullable = false, length = 100)
     private String clientTypeName;
 
+    public ClientType() {};
+
+    public ClientType(String clientTypeName) {this.clientTypeName = clientTypeName;}
+
     public Long getClientTypeID() {
         return clientTypeID;
     }

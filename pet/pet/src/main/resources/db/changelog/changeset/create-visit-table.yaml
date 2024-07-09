@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-visit
+      author: Ivan
+      changes:
+        - createTable:
+            tableName: Visit
+            columns:
+              - column:
+                  name: visitID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: petID
+                  type: BIGINT
+                  constraints:
+                    notNull: true
+              - column:
+                  name: visitGoal
+                  type: VARCHAR(100)
+                  constraints:
+                    notNull: true
+              - column:
+                  name: serviceID
+                  type: BIGINT
+                  constraints:
+                    notNull: true
+              - column:
+                  name: veterinarianID
+                  type: BIGINT
+                  constraints:
+                    notNull: true
+              - column:
+                  name: visitDate
+                  type: DATE
+                  constraints:
+                    notNull: true
+              - addForeignKeyConstraint:
+                  baseTableName: Visit
+                  baseColumnNames: [petID]
+                  constraintName: fk_visit_pet
+                  referencedTableName: Pet
+                  referencedColumnNames: [petID]
+                  onDelete: CASCADE
+              - addForeignKeyConstraint:
+                  baseTableName: Visit
+                  baseColumnNames: [serviceID]
+                  constraintName: fk_visit_service
+                  referencedTableName: Service
+                  referencedColumnNames: [serviceID]
+                  onDelete: CASCADE
+              - addForeignKeyConstraint:
+                  baseTableName: Visit
+                  baseColumnNames: [veterinarianID]
+                  constraintName: fk_visit_veterinarian
+                  referencedTableName: Veterinarian
+                  referencedColumnNames: [veterinarianID]
+                  onDelete: CASCADE

@@ -1,0 +1,65 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-pet
+      author: Ivan
+      changes:
+        - createTable:
+            tableName: Pet
+            columns:
+              - column:
+                  name: petID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: pet_TypeID
+                  type: BIGINT
+                  constraints:
+                    notNull: true
+              - column:
+                  name: ownerID
+                  type: BIGINT
+                  constraints:
+                    notNull: true
+              - column:
+                  name: nickname
+                  type: VARCHAR(100)
+                  constraints:
+                    notNull: true
+              - column:
+                  name: birth_Date
+                  type: DATE
+              - column:
+                  name: gender
+                  type: VARCHAR(10)
+                  constraints:
+                    notNull: true
+            foreignKeyConstraints:
+              - foreignKeyConstraint:
+                  baseTableName: Pet
+                  baseColumnNames:
+                    - petTypeID
+                  referenceTableName: PetType
+                  referenceColumnNames:
+                    - petTypeID
+                  referencedTableName: PetType
+                  referencedColumnNames:
+                    - petTypeID
+              - foreignKeyConstraint:
+                  baseTableName: Pet
+                  baseColumnNames:
+                    - ownerID
+                  referenceTableName: Owner
+                  referenceColumnNames:
+                    - ownerID
+                  referencedTableName: Owner
+                  referencedColumnNames:
+                    - ownerID
+            indexes:
+              - createIndex:
+                  tableName: Pet
+                  columnName: petTypeID
+              - createIndex:
+                  tableName: Pet
+                  columnName: ownerID

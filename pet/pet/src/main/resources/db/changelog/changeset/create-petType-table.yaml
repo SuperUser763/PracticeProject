@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-petType
+      author: Ivan
+      changes:
+        - createTable:
+            tableName: Pet_Type
+            columns:
+              - column:
+                  name: pet_TypeID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: pet_View
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: pet_Breed
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false

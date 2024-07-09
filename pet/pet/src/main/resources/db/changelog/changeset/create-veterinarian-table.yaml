@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-veterinarian
+      author: Ivan
+      changes:
+        - createTable:
+            tableName: Veterinarian
+            columns:
+              - column:
+                  name: veterinarianID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: specialization
+                  type: VARCHAR(100)
+                  constraints:
+                    notNull: true

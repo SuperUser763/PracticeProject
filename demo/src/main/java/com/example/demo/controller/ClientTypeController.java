@@ -1,10 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.ClientType;
-import com.example.demo.repository.ClientTypeRepository;
 import com.example.demo.service.ClientTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
 @Controller
-public class MainController {
+public class ClientTypeController {
 
     private final ClientTypeService clientTypeService;
 
     @Autowired
-    public MainController(ClientTypeService clientTypeService) {
+    public ClientTypeController(ClientTypeService clientTypeService) {
         this.clientTypeService = clientTypeService;
     }
 

@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-owner
+      author: Ivan
+      changes:
+        - createTable:
+            tableName: Owner
+            columns:
+              - column:
+                  name: ownerID
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: clientID
+                  type: BIGINT

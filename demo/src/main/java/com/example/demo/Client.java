@@ -27,7 +27,18 @@ public class Client {
     @Column(nullable = false, length = 20)
     private String phone;
 
+    public Client() {}
+
+    public Client(String fio, Date birthDate, String gender, ClientType clientType, String phone) {
+        this.fio = fio;
+        this.birthDate = birthDate;
+        this.gender = gender;
+        this.clientType = clientType;
+        this.phone = phone;
+    }
+
     // Getters and setters
+
     public Long getClientId() {
         return clientId;
     }

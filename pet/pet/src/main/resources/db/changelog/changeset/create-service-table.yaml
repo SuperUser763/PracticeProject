@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-service
+      author: Ivan
+      changes:
+        - createTable:
+            tableName: Service
+            columns:
+              - column:
+                  name: serviceID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: nameService
+                  type: VARCHAR(100)
+                  constraints:
+                    notNull: true
+              - column:
+                  name: price
+                  type: INT
+                  defaultValue: 0
+                  constraints:
+                    notNull: true

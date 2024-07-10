@@ -16,8 +16,9 @@
 <header th:insert="blocks/header :: header"></header>
 
 <div class="content">
-    <h1>Result</h1>
-    <p th:text="${message}"></p>
+    <h1>Error</h1>
+    <p th:text="${message}">An error occurred.</p>
+    <a th:href="@{/addClient}" class="btn btn-primary">Вернуться назад</a>
 </div>
 
 </body>

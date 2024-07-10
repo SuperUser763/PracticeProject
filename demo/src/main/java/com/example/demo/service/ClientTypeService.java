@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.ClientType;
+import com.example.demo.repository.ClientRepository;
 import com.example.demo.repository.ClientTypeRepository;
 import org.springframework.stereotype.Service;
 
@@ -23,4 +24,9 @@ public class ClientTypeService {
     public Optional<ClientType> getClientTypeByName(String name) {
         return clientTypeRepository.findByClientTypeName(name);
     }
+
+    public Optional<ClientType> getClientTypeById(Long id) {
+        return clientTypeRepository.findById(id);
+    }
+
 }
